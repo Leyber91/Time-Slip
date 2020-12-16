@@ -12,7 +12,7 @@ startJourney = () => {
 }
 //to know which option we select
 
-//Show where we are takinf the textNode Index
+//Show where we are taking the textNode Index
 showWhereWeAre = (pathNodeIndex) => {
     const pathNode = pathNodes.find(pathNode => pathNode.id === pathNodeIndex);
     scenarioToPresent.innerText = pathNode.text
@@ -22,13 +22,15 @@ showWhereWeAre = (pathNodeIndex) => {
         pathToChoose.removeChild(pathToChoose.firstChild)
     }
 // we want to check if the path can be displayed an create a button for each option
-    pathNode.options.forEach(option => {
-        if (selectedOptionKnower(option)) {
+    pathNode.options.forEach(path => {
+        // in case of being true, this options will execute
+        if (selectedOptionKnower(path)) {
+            console.log(path)
             const button = document.createElement('button')
-            button.innerText = option.text
+            button.innerText = path.text
             button.className = 'button'
-            // add an even lsitener to each generated button
-            button.addEventListener('click', () => pickYourPath(option))
+            // add an even listener to each generated button
+            button.addEventListener('click', () => pickYourPath(path))
             pathToChoose.appendChild(button)
 
 
@@ -37,18 +39,21 @@ showWhereWeAre = (pathNodeIndex) => {
 };
 
 selectedOptionKnower = (path) => {
+    console.log(path)
+// if we don´t have any required state, or returns the actual state, due the fact that this function will return
+// the boolean state of the function.
     return path.requiredState == null || path.requiredState(state)
 
 };
 
 // Pick the path you need
 pickYourPath = (path) => {
-    const nextPathNode = path.nextText
+    const nextPathNode = path.nextPath
     //Condition to reestart
     if (nextPathNode <= 0) {
         return startJourney()
     }
-    //Will change the state to the current one. and add another if required
+    //Will change the state to the one on setState. Updating the current and adding new ones
     state = Object.assign(state, path.setState)
     showWhereWeAre(nextPathNode)
 }
@@ -64,12 +69,12 @@ const pathNodes = [
             {
                 text: 'Start on ring world',
                 setState: { timeStretches: true},
-                nextText: 2
+                nextPath: 2
             },
             {
                 text: 'Start on big wave world',
-                setState: { timeCompresses: true},
-                nextText: 4
+                setState: { timeStretches: false},
+                nextPath: 4
             }
         ]
     },
@@ -80,16 +85,18 @@ const pathNodes = [
             {
                 text: 'You enter the hatch',
                 // After the first option passes, we must set the required to be displayed
-                requiredState: (currentStatus) => currentStatus.timeStretches,
+                // with required state if the option is false, the options wil not show up
+                requiredState: (currentState) => currentState.timeStretches,
                 setState: { hatch: true, lake: false},
-                nextText: 4
+                nextPath: 4
             },
             {
                 text: 'You go to swim on the lake',
                 // After the first option passes, we must set the required to be displayed
-                requiredState: (currentStatus) => currentStatus.timeStretches,
+                
+                requiredState: (currentState) => currentState.timeStretches,
                 setState: { hatch: false, lake: false},
-                nextText: 4
+                nextPath: 4
             },
         ]
     },
@@ -100,7 +107,7 @@ const pathNodes = [
             {
                 text: 'Big deep and  then big bang',
                 // I put -1 so we identify id bigger than 0, otherwhise your are send back to starting screen
-                nextText: -1
+                nextPath: -1
             }
         ]
     },
