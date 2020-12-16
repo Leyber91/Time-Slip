@@ -19,7 +19,7 @@ body {
     flex-direction: column;
 }
 
-#storyPage {
+.terminalScreen {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -68,7 +68,8 @@ body {
     display: flex;
     justify-content: space-evenly;
     margin-top:1em;
-    gap: 1em
+    gap: 1em;
+    
     
 }
 
@@ -78,7 +79,7 @@ body {
     border-radius: 1em;
     transition-timing-function: ease-in-out;
     font-weight: bold;
-    color: white;
+    color: rgba(145, 201, 187, 0.618);
     margin: 0.5em;
 }
 
