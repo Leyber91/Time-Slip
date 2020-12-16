@@ -116,4 +116,5 @@ const pathNodes = [
 
 
 //We put it at hte bottom to load once everything is loaded
-startJourney();
+
+
