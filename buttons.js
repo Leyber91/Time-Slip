@@ -8,7 +8,7 @@ let homePageButtons = () =>{
     let terminal = document.querySelector('.terminalScreen')
     //LOCAL STORAGE ACTION
     saveTimeline()
-
+    // SAVES CURRENT TIMELINE
 
 
     while(scenario.firstChild){
@@ -26,10 +26,15 @@ let homePageButtons = () =>{
 //    let terminal1 = document.getElementById('storyPage')
 //    terminal1.id = "storyPage rickAndMorty"
     const button = document.createElement('button')
+    const scores = document.createElement('button')
     button.innerText = 'START'
     button.className = 'button controllerButton'
+    scores.innerText = 'TIMELINES'
+    scores.className = 'button controllerButton'
     button.addEventListener('click', () => storyPageButton())
+    scores.addEventListener('click', () => scorePagebutton())
     footer.appendChild(button);
+    footer.appendChild(scores);
 }
 
 
@@ -65,11 +70,11 @@ parent__container.appendChild(optionPath)
 
 // END GENERATING CONTENT
 */
-startJourney()
+    startJourney()
+
     const button = document.createElement('button')
     button.innerText = 'FINISH TIMELINE'
     button.className = 'button controllerButton'
-    button.id = 'finishButton'
     button.addEventListener('click', () => homePageButtons())
 
 
@@ -80,9 +85,16 @@ startJourney()
 let scorePagebutton = () =>{
     let footer = document.querySelector('#controler')
     const button = document.createElement('button')
+    let container = document.querySelector('.elementHidden')
+    container.className = 'container'
+    while(footer.firstChild){
+        footer.removeChild(footer.firstChild)
+    }
+ 
     button.innerText = 'GO HOME'
-    button.className = 'button'
+    button.className = 'button controllerButton'
     button.addEventListener('click', () => homePageButtons())
+    footer.appendChild(button)
 }
 
 homePageButtons()
