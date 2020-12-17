@@ -5,6 +5,7 @@ let homePageButtons = () =>{
     let scenario = document.querySelector('#scenario');
     let optionPath = document.querySelector('#optionPath');
     let container = document.querySelector('.container')
+    let terminal = document.querySelector('.terminalScreen')
 
     while(scenario.firstChild){
         scenario.removeChild(scenario.firstChild)
@@ -18,7 +19,8 @@ let homePageButtons = () =>{
     }
     container.className = 'elementHidden'
 
-
+//    let terminal1 = document.getElementById('storyPage')
+//    terminal1.id = "storyPage rickAndMorty"
     const button = document.createElement('button')
     button.innerText = 'START'
     button.className = 'button controllerButton'
@@ -29,7 +31,6 @@ let homePageButtons = () =>{
 
 //Story page button
 let storyPageButton = () =>{
-    let terminal = document.querySelector('.terminalScreen')
     let footer = document.querySelector('#controler')
     let container = document.querySelector('.elementHidden')
     container.className = 'container'
@@ -70,7 +71,7 @@ startJourney()
     footer.appendChild(button);
 }
 
-//Story page button
+//Story page button. TO BE CONTINUED
 let scorePagebutton = () =>{
     let footer = document.querySelector('#controler')
     const button = document.createElement('button')

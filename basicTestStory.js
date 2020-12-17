@@ -8,6 +8,7 @@ let state = {};
 startJourney = () => {
     state = {}
     showWhereWeAre(1)
+    console.log(state)
 
 }
 //to know which option we select
@@ -25,7 +26,7 @@ showWhereWeAre = (pathNodeIndex) => {
     pathNode.options.forEach(path => {
         // in case of being true, this options will execute
         if (selectedOptionKnower(path)) {
-            console.log(path)
+//            console.log(path)
             const button = document.createElement('button')
             button.innerText = path.text
             button.className = 'button'
@@ -39,7 +40,8 @@ showWhereWeAre = (pathNodeIndex) => {
 };
 
 selectedOptionKnower = (path) => {
-    console.log(path)
+//    console.log(path)
+    console.log(state)
 // if we don´t have any required state, or returns the actual state, due the fact that this function will return
 // the boolean state of the function.
     return path.requiredState == null || path.requiredState(state)
@@ -105,7 +107,7 @@ const pathNodes = [
         text: 'Neither of the path had a happy ending, now you are lost in time but with a chance to return, take the futurama loop over',
         options: [
             {
-                text: 'Big deep and  then big bang',
+                text: 'Big Freeze first and then the Big bang',
                 // I put -1 so we identify id bigger than 0, otherwhise your are send back to starting screen
                 nextPath: -1
             }

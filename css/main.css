@@ -6,6 +6,7 @@
     box-sizing: border-box;
     font-family: 'Orbitron', Arial, Helvetica, sans-serif;
 }
+button:focus { outline-style: none; }
 
 body {
     padding: 0;
@@ -36,7 +37,10 @@ body {
     border-bottom : none;
     border-top : none;
     position: relative;
+}
 
+#rickAndMorty{
+background-image: url("https://64.media.tumblr.com/51015ec638a516f7f7d353ca198a5091/tumblr_pdbo9wBAe11xd0gvgo1_1280.gifv");
 }
 
 #scenario {
@@ -72,6 +76,8 @@ body {
     
     
 }
+
+
 
 .button {
     background-color:rgba(1, 10, 10, 0.118);
@@ -123,12 +129,26 @@ footer {
     border-left-width: 0.5em;
     border-right-width: 0.5em;
     border-top-width: 0.1em;
+    transition-timing-function: ease-in-out;
     background-image: linear-gradient(rgb(62, 119, 114), rgb(36, 35, 35), black);
     color:rgb(0, 247, 255)
+}
+
+.controllerButton:hover{
+    border-top-width: 0.25em;
+    border-bottom-width: 0.8em;
+    border-left-width: 0.45em;
+    border-right-width: 0.45em;
+    background-image: linear-gradient(rgb(62, 119, 114), rgb(36, 35, 35), black);
+
+    transform: scale(1);
+    
 }
 
 /*DISPLAY CONTROLLER*/
 
 .elementHidden {
-    display:none
+    display:none;
+
+
 }
