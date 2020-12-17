@@ -6,6 +6,12 @@ let homePageButtons = () =>{
     let optionPath = document.querySelector('#optionPath');
     let container = document.querySelector('.container')
     let terminal = document.querySelector('.terminalScreen')
+    //LOCAL STORAGE ACTION
+    //let finishButton = document.querySelector('.controllerButton')
+    //finishButton.addEventListener('click', ()=> savedTimeline())
+    saveTimeline()
+
+
 
     while(scenario.firstChild){
         scenario.removeChild(scenario.firstChild)
@@ -65,6 +71,7 @@ startJourney()
     const button = document.createElement('button')
     button.innerText = 'FINISH TIMELINE'
     button.className = 'button controllerButton'
+    button.id = 'finishButton'
     button.addEventListener('click', () => homePageButtons())
 
 
