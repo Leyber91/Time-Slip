@@ -7,8 +7,6 @@ let homePageButtons = () =>{
     let container = document.querySelector('.container')
     let terminal = document.querySelector('.terminalScreen')
     //LOCAL STORAGE ACTION
-    //let finishButton = document.querySelector('.controllerButton')
-    //finishButton.addEventListener('click', ()=> savedTimeline())
     saveTimeline()
 
 
@@ -88,3 +86,17 @@ let scorePagebutton = () =>{
 }
 
 homePageButtons()
+
+//LOCAL STORAGE RESET
+let resetLocalStorage = () =>{
+    let localStorageButton = document.getElementById('localStorageReset')
+    let clearStorage = () => {
+        localStorage.clear()
+        location.reload()
+    }
+    
+    localStorageButton.addEventListener('click', () => clearStorage())
+    
+}
+
+resetLocalStorage()
