@@ -2,12 +2,6 @@
 //In order to develop the local storage we have to get the state, let's start with a test.
 //import {state} from './basicTestStory'
 // this will be added later localStorage.clear()
-
-let timelineNaming = () => {
-    //Check localStorage
-}
-
-
 let saveTimeline = () => {
 
 const currentState = JSON.stringify(state);
@@ -28,6 +22,20 @@ let convertTime = JSON.parse(getTimeline)
 console.log(convertTime)
 console.log(localStorage.length)
 }
+
+//function to fill out the score panel
+let timeLinesHistory = () => {
+    let historyBox = document.getElementById('optionPath')
+    for (let i = 0; i < localStorage.length ; i++){
+        let timelineName = localStorage.key(i)
+        let timeline = localStorage.getItem(timelineName)
+        const entry = document.createElement('button')
+        entry.className = 'button'
+        entry.innerHTML = timelineName + timeline
+        historyBox.appendChild(entry)
+    }
+}
+
 
 
 

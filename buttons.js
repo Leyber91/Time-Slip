@@ -87,6 +87,9 @@ let scorePagebutton = () =>{
     const button = document.createElement('button')
     let container = document.querySelector('.elementHidden')
     container.className = 'container'
+    scenarioToPresent.innerHTML = "TIMELINES CREATED"
+    
+    
     while(footer.firstChild){
         footer.removeChild(footer.firstChild)
     }
@@ -95,6 +98,8 @@ let scorePagebutton = () =>{
     button.className = 'button controllerButton'
     button.addEventListener('click', () => homePageButtons())
     footer.appendChild(button)
+
+    timeLinesHistory()
 }
 
 homePageButtons()
