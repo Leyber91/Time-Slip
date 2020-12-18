@@ -7,6 +7,7 @@ let homePageButtons = () =>{
     let container = document.querySelector('.container')
     let scoreContainer = document.querySelector('.timelines')
     let stateValues = Object.values(state)
+    //let nonValidTimelines = 
     //LOCAL STORAGE ACTION
     //WILL ONLY EXECUTE ONCE YOU ARE ON THE GAME SCREEN
     if (scoreContainer){
@@ -15,11 +16,12 @@ let homePageButtons = () =>{
     } else if (stateValues.length > 0){
         
         saveTimeline()
-        restartTimelineCount = 0;
+        
         // we save the tat into local storage 
         
 
     }
+    restartTimelineCount = 0;
     // SAVES CURRENT TIMELINE
     console.log(restartTimelineCount)
 

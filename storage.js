@@ -32,9 +32,11 @@ let timeLinesHistory = () => {
     for (let i = 0; i < localStorage.length ; i++){
         let timelineName = localStorage.key(i)
         let timeline = localStorage.getItem(timelineName)
+        //HERE WE DISSECT THE TIME LINE
+        let disectedTimeline = JSON.parse(timeline)
         const entry = document.createElement('button')
         entry.className = 'button'
-        entry.innerHTML = timelineName + timeline
+        entry.innerHTML = timelineName + ' ' + timeline
         historyBox.appendChild(entry)
     }
 }
