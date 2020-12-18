@@ -35,19 +35,19 @@ let timelineClassifier = (object) => {
     switch(object) {
         case typeI:
             console.log('Type I timeline')
-            return 'Type I timeline'
+            return ': Type I timeline'
 
         case typeII:
             console.log('Type II timeline')
-            return 'Type II timeline'
+            return ': Type II timeline'
 
         case typeIII:
             console.log('Type III timeline')
-            return 'Type III timeline'
+            return ': Type III timeline'
 
         default:
             console.log('Type Incomplete')
-            return 'Type Incomplete'
+            return ': Type Incomplete'
 }
 }
 
