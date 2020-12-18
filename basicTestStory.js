@@ -4,19 +4,21 @@ const pathToChoose = document.querySelector('#optionPath');
 
 //track what path we are
 let state = {};
+//times timeline srestarted added
+let restartTimelineCount = 0;
 // making shure first time we start from zero
-startJourney = () => {
-    
+let startJourney = () => {
     console.log(state)
-    //if(){}
-    
+    //condition once a game is started
+        if (state.timeForwardMachine){
+            console.log('you made it through time')
+            restartTimelineCount++  //add each time restarted
+            }
     state = {}
-    
-    
+    console.log(restartTimelineCount)
     showWhereWeAre(1)
     console.log(state)
-
-}
+    }
 //to know which option we select
 
 //Show where we are taking the textNode Index
@@ -57,7 +59,7 @@ selectedOptionKnower = (path) => {
 // Pick the path you need
 pickYourPath = (path) => {
     const nextPathNode = path.nextPath
-    //Condition to reestart
+    //Condition to re-start
     if (nextPathNode <= 0) {
         state = Object.assign(state, path.setState)
         saveTimeline()

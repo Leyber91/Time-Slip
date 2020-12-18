@@ -11,13 +11,17 @@ let homePageButtons = () =>{
     //WILL ONLY EXECUTE ONCE YOU ARE ON THE GAME SCREEN
     if (scoreContainer){
         console.log('Welcome to the different timelines')
+        // A timeline is only saved if it started on the first place, analyzing the length of the object
     } else if (stateValues.length > 0){
+        
         saveTimeline()
-        console.log(stateValues.length)
+        restartTimelineCount = 0;
+        // we save the tat into local storage 
+        
+
     }
-
     // SAVES CURRENT TIMELINE
-
+    console.log(restartTimelineCount)
 
     while(scenario.firstChild){
         scenario.removeChild(scenario.firstChild)

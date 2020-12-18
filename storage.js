@@ -3,7 +3,10 @@
 //import {state} from './basicTestStory'
 // this will be added later localStorage.clear()
 let saveTimeline = () => {
+const TimelineRebootTimes = {reboots: restartTimelineCount};
+Object.assign(state , TimelineRebootTimes)
 
+console.log(state)
 const currentState = JSON.stringify(state);
 console.log(currentState)
 console.log(localStorage.length)
