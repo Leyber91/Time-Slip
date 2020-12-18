@@ -26,6 +26,12 @@ console.log(convertTime)
 console.log(localStorage.length)
 }
 
+// This following function is created to classify the different timelines
+let timelineClassifier = (object) => {
+    
+}
+
+
 //function to fill out the score panel
 let timeLinesHistory = () => {
     let historyBox = document.getElementById('optionPath')
@@ -33,7 +39,23 @@ let timeLinesHistory = () => {
         let timelineName = localStorage.key(i)
         let timeline = localStorage.getItem(timelineName)
         //HERE WE DISSECT THE TIME LINE
-        let disectedTimeline = JSON.parse(timeline)
+        let dissectedTimeline = JSON.parse(timeline)
+        
+        //First we copy the values for TimeMachine and Reboot
+        let timeMachineUse = dissectedTimeline.timeForwardMachine //Time machine use
+        let timeReboots = dissectedTimeline.reboots //Times rebooted, to be used
+
+        //Now I clean the time from the timeLine loop and the timeMachine
+        delete dissectedTimeline.timeForwardMachine
+        delete dissectedTimeline.reboots
+
+        //A check is done to ensure all was carried as planned
+        console.log(dissectedTimeline)
+        console.log(timeMachineUse)
+        console.log(timeReboots)
+        //Now deleted we can proceed with the timeline path analysis
+
+        
         const entry = document.createElement('button')
         entry.className = 'button'
         entry.innerHTML = timelineName + ' ' + timeline
