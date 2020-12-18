@@ -5,9 +5,17 @@ let homePageButtons = () =>{
     let scenario = document.querySelector('#scenario');
     let optionPath = document.querySelector('#optionPath');
     let container = document.querySelector('.container')
-    let terminal = document.querySelector('.terminalScreen')
+    let scoreContainer = document.querySelector('.timelines')
+    let stateValues = Object.values(state)
     //LOCAL STORAGE ACTION
-    saveTimeline()
+    //WILL ONLY EXECUTE ONCE YOU ARE ON THE GAME SCREEN
+    if (scoreContainer){
+        console.log('Welcome to the different timelines')
+    } else if (stateValues.length > 0){
+        saveTimeline()
+        console.log(stateValues.length)
+    }
+
     // SAVES CURRENT TIMELINE
 
 
@@ -86,8 +94,10 @@ let scorePagebutton = () =>{
     let footer = document.querySelector('#controler')
     const button = document.createElement('button')
     let container = document.querySelector('.elementHidden')
-    container.className = 'container'
+    /// We add class timelines to make have an identifier for the container
+    container.className = 'container timelines'
     scenarioToPresent.innerHTML = "TIMELINES CREATED"
+    timelinesContainer = document.getElementById('optionPath')
     
     
     while(footer.firstChild){

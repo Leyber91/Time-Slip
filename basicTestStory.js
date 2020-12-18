@@ -6,7 +6,13 @@ const pathToChoose = document.querySelector('#optionPath');
 let state = {};
 // making shure first time we start from zero
 startJourney = () => {
+    
+    console.log(state)
+    //if(){}
+    
     state = {}
+    
+    
     showWhereWeAre(1)
     console.log(state)
 
@@ -53,10 +59,12 @@ pickYourPath = (path) => {
     const nextPathNode = path.nextPath
     //Condition to reestart
     if (nextPathNode <= 0) {
+        state = Object.assign(state, path.setState)
+        saveTimeline()
         return startJourney()
     }
     //Will change the state to the one on setState. Updating the current and adding new ones
-    state = Object.assign(state, path.setState)
+    state = Object.assign(state, path.setState) // here es when we assign the new state
     showWhereWeAre(nextPathNode)
 }
 
@@ -97,7 +105,7 @@ const pathNodes = [
                 // After the first option passes, we must set the required to be displayed
                 
                 requiredState: (currentState) => currentState.timeStretches,
-                setState: { hatch: false, lake: false},
+                setState: { hatch: false, lake: true},
                 nextPath: 4
             },
         ]
@@ -108,7 +116,8 @@ const pathNodes = [
         options: [
             {
                 text: 'Big Freeze first and then the Big bang',
-                // I put -1 so we identify id bigger than 0, otherwhise your are send back to starting screen
+                // I put -1 so we identify id bigger than 0, your are send back to starting screen
+                setState: { timeForwardMachine: true},
                 nextPath: -1
             }
         ]
