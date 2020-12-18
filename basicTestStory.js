@@ -6,7 +6,7 @@ const pathToChoose = document.querySelector('#optionPath');
 let state = {};
 //times timeline srestarted added
 let restartTimelineCount = 0;
-// making shure first time we start from zero
+// making sure first time we start from zero
 let startJourney = () => {
     console.log(state)
     //condition once a game is started

@@ -14,11 +14,10 @@ let homePageButtons = () =>{
         console.log('Welcome to the different timelines')
         // A timeline is only saved if it started on the first place, analyzing the length of the object
     } else if (stateValues.length > 0){
-        
+
         saveTimeline()
-        
-        // we save the tat into local storage 
-        
+
+        // we save the tat into local storage
 
     }
     restartTimelineCount = 0;

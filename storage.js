@@ -28,9 +28,28 @@ console.log(localStorage.length)
 
 // This following function is created to classify the different timelines
 let timelineClassifier = (object) => {
-    
-}
+    let typeI = '{"timeStretches":false}'
+    let typeII = '{"timeStretches":true,"hatch":true,"lake":false}'
+    let typeIII = '{"timeStretches":true,"hatch":false,"lake":true}'
 
+    switch(object) {
+        case typeI:
+            console.log('Type I timeline')
+            return 'Type I timeline'
+
+        case typeII:
+            console.log('Type II timeline')
+            return 'Type II timeline'
+
+        case typeIII:
+            console.log('Type III timeline')
+            return 'Type III timeline'
+
+        default:
+            console.log('Type Incomplete')
+            return 'Type Incomplete'
+}
+}
 
 //function to fill out the score panel
 let timeLinesHistory = () => {
@@ -53,12 +72,19 @@ let timeLinesHistory = () => {
         console.log(dissectedTimeline)
         console.log(timeMachineUse)
         console.log(timeReboots)
-        //Now deleted we can proceed with the timeline path analysis
 
+        // We transform each timeline
+        let dissectedTimelineS = JSON.stringify(dissectedTimeline)
+        console.log(dissectedTimelineS)
+        //Now deleted we can proceed with the timeline path analysis through the generated switch function
+        timeline = timelineClassifier(dissectedTimelineS) //assign the value obtained
         
+        console.log(timeline)
+        let timelineType = timeline
         const entry = document.createElement('button')
         entry.className = 'button'
-        entry.innerHTML = timelineName + ' ' + timeline
+        //timeline is now timelineType and it is taken out
+        entry.innerHTML = timelineName + ' ' + timelineType
         historyBox.appendChild(entry)
     }
 }
