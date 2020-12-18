@@ -132,9 +132,25 @@ footer {
     transition-timing-function: ease-in-out;
     background-image: linear-gradient(rgb(62, 119, 114), rgb(36, 35, 35), black);
     color:rgb(0, 247, 255);
+    /*I set the transition properties, the duration and the effects.*/
+    transition-property: box-shadow text-shadow;
+    transition-duration: 100ms;
+    transition-timing-function: ease-out;
 }
 
 .controllerButton:hover{
+
+    transform: scale(1);
+    /* offset-x | offset-y | blur-radius | spread-radius | color */
+    box-shadow: 0em 0.2em 0.3em 0.15em rgb(0, 225, 255);
+    /*text-shadow: h-shadow v-shadow blur-radius color|none|initial|inherit;*/
+    text-shadow: 0em 0em 0.1em rgb(0, 255, 229);
+    
+}
+
+
+/* we set active in order to make the effect once clicked*/
+.controllerButton:active{
     border-top-width: 0.25em;
     border-bottom-width: 0.8em;
     border-left-width: 0.45em;
