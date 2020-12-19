@@ -35,21 +35,47 @@ let timelineClassifier = (object) => {
     switch(object) {
         case typeI:
             console.log('Type I timeline')
-            return ': Type I timeline'
+            return 'Type I timeline'
 
         case typeII:
             console.log('Type II timeline')
-            return ': Type II timeline'
+            return 'Type II timeline'
 
         case typeIII:
             console.log('Type III timeline')
-            return ': Type III timeline'
+            return 'Type III timeline'
 
         default:
             console.log('Type Incomplete')
-            return ': Type Incomplete'
+            return 'Type Incomplete'
 }
 }
+
+let timelineDisplayer = (timeline) => {
+    let visualizer = document.getElementById('visualizer')
+    switch(timeline) {
+        case 'Type I timeline':
+            console.log('Type I background')
+            visualizer.style.background = 'black'
+            break
+
+        case 'Type II timeline':
+            console.log('Type II background')
+            visualizer.style.background = 'red'
+            break
+
+        case 'Type III timeline':
+            console.log('Type III background')
+            visualizer.style.background = 'green'
+            break
+
+        default:
+            console.log('Type Incomplete background')
+            visualizer.style.background = 'yellow'
+}
+}
+
+
 
 //function to fill out the score panel
 let timeLinesHistory = () => {
@@ -59,7 +85,6 @@ let timeLinesHistory = () => {
         let timeline = localStorage.getItem(timelineName)
         //HERE WE DISSECT THE TIME LINE
         let dissectedTimeline = JSON.parse(timeline)
-        
         //First we copy the values for TimeMachine and Reboot
         let timeMachineUse = dissectedTimeline.timeForwardMachine //Time machine use
         let timeReboots = dissectedTimeline.reboots //Times rebooted, to be used
@@ -80,11 +105,19 @@ let timeLinesHistory = () => {
         timeline = timelineClassifier(dissectedTimelineS) //assign the value obtained
         
         console.log(timeline)
+
+        // let's make a function that creates a container bellow and shows and image depending on the timeline
         let timelineType = timeline
+
+
+
         const entry = document.createElement('button')
         entry.className = 'button'
         //timeline is now timelineType and it is taken out
-        entry.innerHTML = timelineName + ' ' + timelineType
+        entry.innerHTML = timelineName + ': ' + timelineType
+        // Here I add the event listener when hovering
+        entry.addEventListener('mouseover', () => timelineDisplayer(timelineType) )
+        //entry.addEventListener('mouseout', () => timelineNonDisplayer(timelineType) )
         historyBox.appendChild(entry)
     }
 }

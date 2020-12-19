@@ -6,13 +6,23 @@ let homePageButtons = () =>{
     let optionPath = document.querySelector('#optionPath');
     let container = document.querySelector('.container')
     let scoreContainer = document.querySelector('.timelines')
+    let terminalScreen = document.getElementById('storyPage')
     let stateValues = Object.values(state)
+    let visualizer = document.getElementById('visualizer')
+    
+
+
+
+
     //let nonValidTimelines = 
     //LOCAL STORAGE ACTION
     //WILL ONLY EXECUTE ONCE YOU ARE ON THE GAME SCREEN
     if (scoreContainer){
         console.log('Welcome to the different timelines')
         // A timeline is only saved if it started on the first place, analyzing the length of the object
+        if (visualizer){
+            terminalScreen.removeChild(visualizer)
+        }
     } else if (stateValues.length > 0){
 
         saveTimeline()
@@ -20,10 +30,14 @@ let homePageButtons = () =>{
         // we save the tat into local storage
 
     }
-    restartTimelineCount = 0;
-    // SAVES CURRENT TIMELINE
+    //Eliminate the addes visualizer
     console.log(restartTimelineCount)
 
+
+    //time loop count
+    restartTimelineCount = 0;
+    // SAVES CURRENT TIMELINE
+  
     while(scenario.firstChild){
         scenario.removeChild(scenario.firstChild)
     }
@@ -97,10 +111,16 @@ parent__container.appendChild(optionPath)
 //Story page button. TO BE CONTINUED
 let scorePagebutton = () =>{
     let footer = document.querySelector('#controler')
+    let terminalScreen = document.querySelector('.terminalScreen')
     const button = document.createElement('button')
+    // define de visualizer on result
+    const visualizer = document.createElement('div')
+    visualizer.className = 'container'
+    visualizer.id = 'visualizer'
     let container = document.querySelector('.elementHidden')
     /// We add class timelines to make have an identifier for the container
     container.className = 'container timelines'
+    container.id = 'timelineList'
     scenarioToPresent.innerHTML = "TIMELINES CREATED"
     timelinesContainer = document.getElementById('optionPath')
     
@@ -113,6 +133,8 @@ let scorePagebutton = () =>{
     button.className = 'button controllerButton'
     button.addEventListener('click', () => homePageButtons())
     footer.appendChild(button)
+    terminalScreen.appendChild(visualizer)
+    // addd absolute botttom.
 
     timeLinesHistory()
 }
