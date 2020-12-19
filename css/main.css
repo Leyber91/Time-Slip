@@ -217,6 +217,8 @@ flex-basis: 30%;
 max-height: 10em;
 margin-bottom: 0.8em;
 border-radius: 10em;
+background-position: center;
+background-size: cover;
 }
 
 #timelineList {

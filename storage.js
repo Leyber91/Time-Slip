@@ -56,22 +56,22 @@ let timelineDisplayer = (timeline) => {
     switch(timeline) {
         case 'Type I timeline':
             console.log('Type I background')
-            visualizer.style.background = 'black'
+            visualizer.style.backgroundImage = "url('/Images/typeI.jpg')"
             break
 
         case 'Type II timeline':
             console.log('Type II background')
-            visualizer.style.background = 'red'
+            visualizer.style.backgroundImage = "url('/Images/typeII.jpg')"
             break
 
         case 'Type III timeline':
             console.log('Type III background')
-            visualizer.style.background = 'green'
+            visualizer.style.backgroundImage = "url('/Images/typeIII.jpg')"
             break
 
         default:
             console.log('Type Incomplete background')
-            visualizer.style.background = 'yellow'
+            visualizer.style.backgroundImage = "url('/Images/typeUnfinished.jpg')"
 }
 }
 

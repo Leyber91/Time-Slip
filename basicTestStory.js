@@ -95,7 +95,7 @@ const pathNodes = [
         text: 'You encounter a house next to a lake that seems from another time long past, you enter and you find a hatch open.',
         options: [
             {
-                text: 'You enter the hatch',
+                text: 'Go through the hatch',
                 // After the first option passes, we must set the required to be displayed
                 // with required state if the option is false, the options wil not show up
                 requiredState: (currentState) => currentState.timeStretches,
