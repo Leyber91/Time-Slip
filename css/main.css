@@ -225,3 +225,11 @@ max-width: 50%
 #timelineList {
 margin-top: 1em;
 }
+
+
+/*SOLAR SYSTEM SIMULATION*/
+#canvas {
+    z-index: -1;
+    position:absolute;
+    justify-content: center;
+}

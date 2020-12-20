@@ -80,13 +80,15 @@ function Body(_mass, _pos, _vel){
 }
 
 setup()*/
+// equivalent to document.create element image()
+
 
 let sun = new Image();
 let moon = new Image();
 let earth = new Image();
 
 //this funciton will serve us to initiate the program
-let init = () => {
+let initialize = () => {
     sun.src = 'https://mdn.mozillademos.org/files/1456/Canvas_sun.png';
     moon.src = 'https://mdn.mozillademos.org/files/1443/Canvas_moon.png';
     earth.src = 'https://mdn.mozillademos.org/files/1429/Canvas_earth.png';
@@ -94,44 +96,123 @@ window.requestAnimationFrame(createSystem);
 }
 
 let createSystem = () =>{
-    let ctx = document.getElementById('canvas').getContext('2d');
+    let canvas = document.getElementById('canvas')
+    let ctx = canvas.getContext('2d');
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
 
+    ///Operation to apply when drawing new shapes.
     ctx.globalCompositeOperation = 'destination-over'
-    ctx.clearRect(0,0,400,300);
 
-    ctx.fillStyle = 'rgba(white,0.5)';
-    ctx.strokeStyle = 'rgba(blue,0.5)';
+
+    ctx.clearRect(0,0,600,600);
 
     ctx.save();
 
     ctx.translate(150,150);
 
-    //Earth
+    //Earth Center
     let time = new Date();
-
+    //void ctx.rotate(angle);
+    // where to put it on the screen
+    ctx.translate(200,180) 
     ctx.rotate(((2 * Math.PI) / 60) * time.getSeconds() + ((2 * Math.PI) / 60000) * time.getMilliseconds());
-    ctx.translate(105,0)
-    ctx.fillRect(0, -12,40,24); //shadow
-    ctx.drawImage(earth, -12, -12);
+    //void ctx.translate(x, y);
+
+    //void ctx.fillRect(x, y, width, height);
+    
+    //void ctx.drawImage(image, dx, dy);
+    //void ctx.drawImage(image, dx, dy, dWidth, dHeight);
+    //void ctx.drawImage(image, sx, sy, sWidth, sHeight, dx, dy, dWidth, dHeight);
+
+    //BIG CENTER CLACK WHOLE
+
+    ctx.fillStyle = 'black'; // you need to fill up the image
+    ctx.beginPath(); //start the path
+    ctx.ellipse(-5,-5, 20 , 20, Math.PI / 4, 0, 2 * Math.PI)
+    ctx.stroke(); //end the path
+    ctx.fill(); //fill up whatever was generated
+    ctx.drawImage(earth, -20, -20, 40, 40); //here I modifiy the orbit //BIG CENTER EARTH
     ctx.save();
 
-    //Moon
-
+    //Earth rotates
+    // this will be useful to modify the speed of the object
+    // it has to modify 0.6 or 600 //
     ctx.rotate(((2 * Math.PI) / 6) * time.getSeconds() + ((2 * Math.PI) / 6000) * time.getMilliseconds());
-    ctx.translate(0,28.5);
-    ctx.fillRect(0, -12,40,24);
-    ctx.drawImage(moon, -3.5,-3.5);
-    ctx.restore();
+    //void ctx.translate(x, y);
+    //ctx.translate(0,0);
+    //void ctx.fillRect(x, y, width, height);
+    ctx.translate(200,0) //WE DRAW HOW FAR THE OBJECT 
+    ctx.drawImage(earth, -10,-10, 20 , 20); //earth rotates
+    ctx.save()
+    
+    //Earth moon
+    //ctx.restore();
+//Moon 1
+    ctx.rotate(((2 * Math.PI) / 600) * time.getSeconds() + ((2 * Math.PI) / 600000) * time.getMilliseconds());
+    ctx.translate(50,0) //ORBIT OF THE MOON
+    
+    //ctx.drawImage(earth, -5,-5 , 10 , 10);
+    ctx.fillStyle = 'red'; // you need to fill up the image
+    ctx.beginPath(); //start the path
+    ctx.ellipse(-5,-5, 20 , 20, Math.PI / 4, 0, 2 * Math.PI)
+    ctx.stroke(); //end the path
+    ctx.fill(); //fill up whatever was generated
 
-    ctx.restore();
+    ctx.save()
+    ctx.restore() // eliminate the save level
+    ctx.restore() // we go back to the previous reference
+    ctx.rotate(((2 * Math.PI) / 6000) * time.getSeconds() + ((2 * Math.PI) / 6000000) * time.getMilliseconds());
+    ctx.translate(20,0)
+    ctx.drawImage(earth, -5,-5 , 10 , 10);
+
+
+    ctx.save()
+
+    //ctx.restore()
+    //ctx.restore()
+    //ctx.restore()
+
+//Planet 2
+
+    
+//Planet 3
+    //void ctx.ellipse(x, y, radiusX, radiusY, rotation, startAngle, endAngle [, anticlockwise]);
+    
+    ctx.ellipse(-33.5,-33.5, 300,300, 1 , 20 , 40);
+    ctx.fillStyle = 'green';
+    ctx.save()
+    
+//Planet 4
+
+    
+//Planet 5
+
+    
+//Planet 6
+
+    
+//Planet 7
+
+    
+//Planet 8
+
+    //ctx.restore();
+    
+    //ctx.restore();
+    
+    ctx.beginPath();//create distinct paths
+    
     ctx.beginPath();
-    ctx.arc(150,150,105, 0, Math.PI *2, false);
+// SUN
+    //ctx.arc(150,150,105, 0, Math.PI *2, false);
     ctx.stroke();
-
-    ctx.drawImage(sun, 0, 0, 300, 300);
+// animations are not according to the position of the sun
+//void ctx.drawImage(image, sx, sy, sWidth, sHeight, dx, dy, dWidth, dHeight);
+    //ctx.drawImage(sun, 200, 200, 300, 300);
 
     window.requestAnimationFrame(createSystem);
 
 }
 
-init();
+initialize();

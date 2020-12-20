@@ -98,7 +98,7 @@ parent__container.appendChild(optionPath)
 // END GENERATING CONTENT
 */
     startJourney()
-    draw()
+
 
     const button = document.createElement('button')
     button.innerText = 'FINISH TIMELINE'
