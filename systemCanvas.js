@@ -1,23 +1,18 @@
 
-
-
-let sun = new Image();
-let moon = new Image();
-let earth = new Image();
+const speedController = 60;
 
 //this funciton will serve us to initiate the program
 let initialize = () => {
-    sun.src = 'https://mdn.mozillademos.org/files/1456/Canvas_sun.png';
-    moon.src = 'https://mdn.mozillademos.org/files/1443/Canvas_moon.png';
-    earth.src = 'https://mdn.mozillademos.org/files/1429/Canvas_earth.png';
 window.requestAnimationFrame(createSystem);
 }
 
 let createSystem = () =>{
     let canvas = document.getElementById('canvas')
     let ctx = canvas.getContext('2d');
+
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
+
 
     ///Operation to apply when drawing new shapes.
     ctx.globalCompositeOperation = 'destination-over'
@@ -34,7 +29,7 @@ let createSystem = () =>{
     //void ctx.rotate(angle);
     // where to put it on the screen
     ctx.translate(200,180) 
-    ctx.rotate(((2 * Math.PI) / 60) * time.getSeconds() + ((2 * Math.PI) / 60000) * time.getMilliseconds());
+    ctx.rotate(((2 * Math.PI) / speedController) * time.getSeconds() + ((2 * Math.PI) / ((speedController)*1000)) * time.getMilliseconds());
     //void ctx.translate(x, y);
 
     //void ctx.fillRect(x, y, width, height);
@@ -203,7 +198,7 @@ let createSystem = () =>{
 
     //HELL ETERNUM PLANET
     // it has to modify 0.6 or 600 //
-    ctx.rotate(((2 * Math.PI) / 3) * time.getSeconds() + ((2 * Math.PI) / 3000) * time.getMilliseconds());
+    ctx.rotate(((2 * Math.PI) / (speedController*0.05)) * time.getSeconds() + ((2 * Math.PI) / ((speedController)*50)) * time.getMilliseconds());
     ctx.translate(100,0) //WE DRAW TO THE CLOSER ORBIT POSSIBLE. HELL WORLD
     ctx.fillStyle = gradientHW;
     ctx.beginPath(); //start the path
@@ -214,7 +209,7 @@ let createSystem = () =>{
     ctx.restore();
 
     //WAVE WORLD
-    ctx.rotate(((2 * Math.PI) / 6) * time.getSeconds() + ((2 * Math.PI) / 6000) * time.getMilliseconds());
+    ctx.rotate(((2 * Math.PI) / (speedController*0.1)) * time.getSeconds() + ((2 * Math.PI) / ((speedController)*100)) * time.getMilliseconds());
     //void ctx.translate(x, y);
     //ctx.translate(0,0);
     //void ctx.fillRect(x, y, width, height);
@@ -236,7 +231,7 @@ let createSystem = () =>{
 
 
     //MOUNTAIN WORLD
-    ctx.rotate(((2 * Math.PI) / 9) * time.getSeconds() + ((2 * Math.PI) / 9000) * time.getMilliseconds());
+    ctx.rotate(((2 * Math.PI) / (speedController*0.15)) * time.getSeconds() + ((2 * Math.PI) / ((speedController)*150)) * time.getMilliseconds());
     //void ctx.translate(x, y);
     //ctx.translate(0,0);
     //void ctx.fillRect(x, y, width, height);
@@ -252,7 +247,7 @@ let createSystem = () =>{
 
 
     //MIDDLE WORLD
-    ctx.rotate(((2 * Math.PI) / 12) * time.getSeconds() + ((2 * Math.PI) / 12000) * time.getMilliseconds());
+    ctx.rotate(((2 * Math.PI) / (speedController*0.2)) * time.getSeconds() + ((2 * Math.PI) / ((speedController)*200)) * time.getMilliseconds());
     //void ctx.translate(x, y);
     //ctx.translate(0,0);
     //void ctx.fillRect(x, y, width, height);
@@ -267,7 +262,7 @@ let createSystem = () =>{
 
     ctx.save();
         //MIDDLE WORLD MOON
-        ctx.rotate(((2 * Math.PI) / 12) * time.getSeconds() + ((2 * Math.PI) / 12000) * time.getMilliseconds());
+        ctx.rotate(((2 * Math.PI) / (speedController*0.2)) * time.getSeconds() + ((2 * Math.PI) / ((speedController)*200)) * time.getMilliseconds());
         //void ctx.translate(x, y);
         //ctx.translate(0,0);
         //void ctx.fillRect(x, y, width, height);
@@ -291,12 +286,12 @@ let createSystem = () =>{
 
 
     //BINARY WORLDS
-    ctx.rotate(((2 * Math.PI) / 15) * time.getSeconds() + ((2 * Math.PI) / 15000) * time.getMilliseconds());
+    ctx.rotate(((2 * Math.PI) / (speedController*0.25)) * time.getSeconds() + ((2 * Math.PI) / ((speedController)*250)) * time.getMilliseconds());
     //void ctx.translate(x, y);
     //ctx.translate(0,0);
     //void ctx.fillRect(x, y, width, height);
     ctx.translate(300,0) //WE DRAW TO THE CLOSER ORBIT POSSIBLE. HELL WORLD
-    ctx.rotate(((2 * Math.PI) / 6) * time.getSeconds() + ((2 * Math.PI) / 6000) * time.getMilliseconds());
+    ctx.rotate(((2 * Math.PI) / (speedController*0.1)) * time.getSeconds() + ((2 * Math.PI) / ((speedController)*100)) * time.getMilliseconds());
     //PURPLE GAS GIANT
     ctx.fillStyle = gradientBWB;
     ctx.beginPath(); //start the path
@@ -317,7 +312,7 @@ let createSystem = () =>{
 
 
     //RING WORLD
-    ctx.rotate(((2 * Math.PI) / 18) * time.getSeconds() + ((2 * Math.PI) / 18000) * time.getMilliseconds());
+    ctx.rotate(((2 * Math.PI) / (speedController*0.3)) * time.getSeconds() + ((2 * Math.PI) / ((speedController)*300)) * time.getMilliseconds());
     //void ctx.translate(x, y);
 
     //void ctx.fillRect(x, y, width, height);
@@ -345,7 +340,7 @@ let createSystem = () =>{
     ctx.save();
 
         //RINGWORLD MOON
-        ctx.rotate(((2 * Math.PI) / 12) * time.getSeconds() + ((2 * Math.PI) / 12000) * time.getMilliseconds());
+        ctx.rotate(((2 * Math.PI) / (speedController*0.2)) * time.getSeconds() + ((2 * Math.PI) / ((speedController)*200)) * time.getMilliseconds());
         //void ctx.translate(x, y);
         //ctx.translate(0,0);
         //void ctx.fillRect(x, y, width, height);
@@ -368,7 +363,7 @@ let createSystem = () =>{
 
         
     //OUTER WORLD
-    ctx.rotate(((2 * Math.PI) / 24) * time.getSeconds() + ((2 * Math.PI) / 24000) * time.getMilliseconds());
+    ctx.rotate(((2 * Math.PI) / (speedController*0.4)) * time.getSeconds() + ((2 * Math.PI) / ((speedController)*400)) * time.getMilliseconds());
     //void ctx.translate(x, y);
     //ctx.translate(0,0);
     //void ctx.fillRect(x, y, width, height);

@@ -9,6 +9,7 @@ let homePageButtons = () =>{
     let terminalScreen = document.getElementById('storyPage')
     let stateValues = Object.values(state)
     let visualizer = document.getElementById('visualizer')
+
     
 
 
