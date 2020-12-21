@@ -70,7 +70,7 @@ background-image: url("https://64.media.tumblr.com/51015ec638a516f7f7d353ca198a5
     position: relative;
 
     border: 0.2em solid rgba(131, 228, 255, 0.467);
-    color:rgba(0, 247, 255, 0.405);
+    color:rgb(0, 247, 255);
 }
 
 #optionPath{
@@ -126,7 +126,7 @@ background-image: url("https://64.media.tumblr.com/51015ec638a516f7f7d353ca198a5
     border-radius: 1em;
     transition-timing-function: ease-in-out;
     font-weight: bold;
-    color: rgba(145, 201, 187, 0.618);
+    color: rgb(145, 201, 187);
     margin: 0.5em;
 }
 

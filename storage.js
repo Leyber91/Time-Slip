@@ -4,6 +4,7 @@
 // this will be added later localStorage.clear()
 let saveTimeline = () => {
 const TimelineRebootTimes = {reboots: restartTimelineCount};
+//I add the timeline after we save it
 Object.assign(state , TimelineRebootTimes)
 
 console.log(state)
