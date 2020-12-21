@@ -48,42 +48,82 @@ let createSystem = () =>{
     // Create a radial gradient
     // The inner circle is at x=110, y=90, with radius=30
     // The outer circle is at x=100, y=100, with radius=70
-    var gradient = ctx.createRadialGradient(40,40,5, 40,40,20);
+    var gradientBH = ctx.createRadialGradient(40,40,5, 40,40,20);
 
     //COLOR DESIGN FOR BLACK HOLE
-    gradient.addColorStop(.83, 'black');
-    gradient.addColorStop(.85, 'orange');
-    gradient.addColorStop(.87, 'black');
-    gradient.addColorStop(.9, 'orange');
-    gradient.addColorStop(.94, 'black');
-    gradient.addColorStop(.98, 'yellow');
-  
+    gradientBH.addColorStop(.83, 'black');
+    gradientBH.addColorStop(.85, 'orange');
+    gradientBH.addColorStop(.87, 'black');
+    gradientBH.addColorStop(.9, 'orange');
+    gradientBH.addColorStop(.94, 'black');
+    gradientBH.addColorStop(.98, 'yellow');
+
+// COLOR DESIGN STAR
+    var gradientStar = ctx.createRadialGradient(-40,-40,5, -40,-40,30);
+
+    //COLOR DESIGN FOR BLACK STAR
+    gradientStar.addColorStop(0, 'darkOrange');
+    gradientStar.addColorStop(.87, 'red');
+    gradientStar.addColorStop(.88, 'darkRed');
+    gradientStar.addColorStop(.93, 'orange');
+    gradientStar.addColorStop(.94, 'red');
+
+// COLOR DESIGN HELL WORLD
+    var gradientHW = ctx.createRadialGradient(0,0,4, 0,0,6.5);
+
+    //COLOR DESIGN FOR BLACK STAR
+    gradientHW.addColorStop(0, 'darkRed');
+    gradientHW.addColorStop(.30, 'black');
+    gradientHW.addColorStop(.88, 'red');
+    gradientHW.addColorStop(.93, 'Brown');
+    gradientHW.addColorStop(.94, 'red');
+
+
+// BINARY SYSTEM CREATION
 
     // Set the fill style and draw a rectangle
-    ctx.fillStyle = gradient;
+    ctx.fillStyle = gradientBH;
     ctx.beginPath(); //start the path
     //ctx.ellipse(x, y, radiusX, radiusY, rotation, startAngle, endAngle [, anticlockwise]);
     ctx.ellipse(40, 40, 20, 20, Math.PI / 4, 0, 2 * Math.PI)
     ctx.stroke(); //end the path
     ctx.fill(); //fill up whatever was generated
-    
-    ctx.fillStyle = 'orange';
+
+
+    //CREATE THE SUN
+    ctx.fillStyle = gradientStar;
     ctx.beginPath(); //start the path
     //ctx.ellipse(x, y, radiusX, radiusY, rotation, startAngle, endAngle [, anticlockwise]);
-    ctx.ellipse(-40, -40, 35, 35, Math.PI / 4, 0, 2 * Math.PI)
+    ctx.ellipse(-40, -40, 30, 30, Math.PI / 4, 0, 2 * Math.PI)
     ctx.stroke(); //end the path
     ctx.fill(); //fill up whatever was generated
     ctx.save();
 
+    //HELL ETERNUM PLANET
+
     //Earth rotates
     // this will be useful to modify the speed of the object
     // it has to modify 0.6 or 600 //
-    ctx.rotate(((2 * Math.PI) / 6) * time.getSeconds() + ((2 * Math.PI) / 6000) * time.getMilliseconds());
+    ctx.rotate(((2 * Math.PI) / 3) * time.getSeconds() + ((2 * Math.PI) / 3000) * time.getMilliseconds());
     //void ctx.translate(x, y);
     //ctx.translate(0,0);
     //void ctx.fillRect(x, y, width, height);
-    ctx.translate(200,0) //WE DRAW HOW FAR THE OBJECT 
-    ctx.drawImage(earth, -10,-10, 20 , 20); //earth rotates
+    ctx.translate(100,0) //WE DRAW TO THE CLOSER ORBIT POSSIBLE. HELL WORLD
+
+    ctx.fillStyle = gradientHW;
+    ctx.beginPath(); //start the path
+    //ctx.ellipse(x, y, radiusX, radiusY, rotation, startAngle, endAngle [, anticlockwise]);
+    ctx.ellipse(0, 0, 6, 6, Math.PI / 4, 0, 2 * Math.PI)
+    ctx.stroke(); //end the path
+    ctx.fill(); //fill up whatever was generated
+    ctx.save();
+
+
+
+
+
+
+
     ctx.save()
     
     //Earth moon
