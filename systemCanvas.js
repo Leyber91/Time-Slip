@@ -69,7 +69,7 @@ let createSystem = () =>{
     gradientStar.addColorStop(.94, 'red');
 
 // COLOR DESIGN HELL WORLD
-    var gradientHW = ctx.createRadialGradient(0,0,4, 0,0,6.5);
+    var gradientHW = ctx.createRadialGradient(0,0,4, 0,0,6);
 
     //COLOR DESIGN FOR BLACK STAR
     gradientHW.addColorStop(0, 'darkRed');
@@ -78,6 +78,108 @@ let createSystem = () =>{
     gradientHW.addColorStop(.93, 'Brown');
     gradientHW.addColorStop(.94, 'red');
 
+// COLOR DESIGN WAVEWORLD
+    var gradientWW = ctx.createRadialGradient(0,0,5, 0,0,11.8);
+
+    //COLOR DESIGN FOR WAVEWORLD
+    gradientWW.addColorStop(0, 'white');
+    gradientWW.addColorStop(.10, 'lightBlue');
+    gradientWW.addColorStop(.50, 'darkBlue');
+    gradientWW.addColorStop(.90, 'grey');
+    gradientWW.addColorStop(.92, 'blue');
+    gradientWW.addColorStop(.94, 'lightBlue');
+    gradientWW.addColorStop(.96, 'darkBlue');
+    gradientWW.addColorStop(.98, 'White');
+    gradientWW.addColorStop(1, 'black');
+
+
+    // COLOR DESIGN MOUNTAINWORLD
+    var gradientMW = ctx.createRadialGradient(0,0,2, 0,0,10);
+
+    // COLOR DESIGN FOR MOUNTAIN WORLDS
+    gradientMW.addColorStop(0, 'lightBlue');
+    gradientMW.addColorStop(.30, 'brown');
+    gradientMW.addColorStop(.40, 'darkGreen');
+    gradientMW.addColorStop(.50, 'green');
+    gradientMW.addColorStop(.60, 'lightGreen');
+    gradientMW.addColorStop(.80, 'brown');
+    gradientMW.addColorStop(.90, 'darkGreen');
+    gradientMW.addColorStop(.92, 'green');
+    gradientMW.addColorStop(.94, 'lightBlue');
+    gradientMW.addColorStop(.96, 'darkBlue');
+    gradientMW.addColorStop(.98, 'White');
+    gradientMW.addColorStop(1, 'black');
+
+    // COLOR DESIGN MIDDLE WORLD
+    var gradientMDW = ctx.createRadialGradient(0,0,2, 0,0,10);
+
+    // COLOR DESIGN FOR MIDDLE WORLD
+    gradientMDW.addColorStop(0, 'lightBlue');
+    gradientMDW.addColorStop(.30, 'brown');
+    gradientMDW.addColorStop(.90, 'grey');
+    gradientMDW.addColorStop(.92, 'green');
+    gradientMDW.addColorStop(.94, 'lightBlue');
+    gradientMDW.addColorStop(.96, 'darkBlue');
+    gradientMDW.addColorStop(.98, 'White');
+    gradientMDW.addColorStop(1, 'black');
+
+    // COLOR DESIGN MIDDLE WORLD MOON
+    var gradientMWM = ctx.createRadialGradient(0,0,2, 0,0,10);
+
+    // COLOR DESIGN FOR MIDDLE WORLD
+    gradientMWM.addColorStop(0, 'lightBlue');
+    gradientMWM.addColorStop(.30, 'brown');
+    gradientMWM.addColorStop(.90, 'grey');
+    gradientMWM.addColorStop(.92, 'green');
+    gradientMWM.addColorStop(.94, 'lightBlue');
+    gradientMWM.addColorStop(.96, 'darkBlue');
+    gradientMWM.addColorStop(.98, 'White');
+    gradientMWM.addColorStop(1, 'black');
+
+    // BINARY WORLDS
+    var gradientBWB = ctx.createRadialGradient(15,15,1, 15,15,14);
+    var gradientBWV = ctx.createRadialGradient(-20,-20,1, -20,-20,16);
+
+    // COLOR DESIGN FOR BINARY WORLD BLUE
+    gradientBWB.addColorStop(0, 'lightBlue');
+    gradientBWB.addColorStop(.87, 'turquoise');
+    gradientBWB.addColorStop(.88, 'blue');
+    gradientBWB.addColorStop(.93, 'darkBlue');
+    gradientBWB.addColorStop(.98, 'grey');
+    gradientBWB.addColorStop(1, 'white');
+
+    // COLOR DESIGN FOR BINARY WORLD VIOLET
+    gradientBWV.addColorStop(0, 'lightBlue');
+    gradientBWV.addColorStop(.87, 'purple');
+    gradientBWV.addColorStop(.88, 'blue');
+    gradientBWV.addColorStop(.93, 'pink');
+    gradientBWV.addColorStop(.98, 'darkBlue');
+
+    // COLOR DESIGN RINGWORLD
+    var gradientRW = ctx.createRadialGradient(0,0,2, 0,0,19.5);
+
+    // COLOR DESIGN FOR MIDDLE WORLD
+    gradientRW.addColorStop(0, 'lightYellow');
+    gradientRW.addColorStop(.40, 'darkOrange');
+    gradientRW.addColorStop(.78, 'brown');
+    gradientRW.addColorStop(.95, 'orange');
+    gradientRW.addColorStop(1, 'yellow');
+
+        // COLOR DESIGN RINGWORLD MOON
+        var gradientRWM = ctx.createRadialGradient(0,0,1, 0,0,5);
+
+        // COLOR DESIGN FOR RING WORLD
+        gradientRWM.addColorStop(0, 'grey');
+        gradientRWM.addColorStop(.40, 'darkGrey');
+        gradientRWM.addColorStop(.78, 'white');
+        gradientRWM.addColorStop(.95, 'black');
+        gradientRWM.addColorStop(1, 'white');
+
+
+
+
+
+// COLOR DESIGN FOR MIDDLE WORLD
 
 // BINARY SYSTEM CREATION
 
@@ -100,94 +202,189 @@ let createSystem = () =>{
     ctx.save();
 
     //HELL ETERNUM PLANET
-
-    //Earth rotates
-    // this will be useful to modify the speed of the object
     // it has to modify 0.6 or 600 //
     ctx.rotate(((2 * Math.PI) / 3) * time.getSeconds() + ((2 * Math.PI) / 3000) * time.getMilliseconds());
-    //void ctx.translate(x, y);
-    //ctx.translate(0,0);
-    //void ctx.fillRect(x, y, width, height);
     ctx.translate(100,0) //WE DRAW TO THE CLOSER ORBIT POSSIBLE. HELL WORLD
-
     ctx.fillStyle = gradientHW;
     ctx.beginPath(); //start the path
     //ctx.ellipse(x, y, radiusX, radiusY, rotation, startAngle, endAngle [, anticlockwise]);
     ctx.ellipse(0, 0, 6, 6, Math.PI / 4, 0, 2 * Math.PI)
     ctx.stroke(); //end the path
     ctx.fill(); //fill up whatever was generated
-    ctx.save();
+    ctx.restore();
 
+    //WAVE WORLD
+    ctx.rotate(((2 * Math.PI) / 6) * time.getSeconds() + ((2 * Math.PI) / 6000) * time.getMilliseconds());
+    //void ctx.translate(x, y);
+    //ctx.translate(0,0);
+    //void ctx.fillRect(x, y, width, height);
+    ctx.translate(140,0) //WE DRAW TO THE CLOSER ORBIT POSSIBLE. HELL WORLD
 
-
-
-
-
-
-    ctx.save()
-    
-    //Earth moon
-    //ctx.restore();
-//Moon 1
-    ctx.rotate(((2 * Math.PI) / 600) * time.getSeconds() + ((2 * Math.PI) / 600000) * time.getMilliseconds());
-    ctx.translate(50,0) //ORBIT OF THE MOON
-    
-    //ctx.drawImage(earth, -5,-5 , 10 , 10);
-    ctx.fillStyle = 'red'; // you need to fill up the image
+    ctx.fillStyle = gradientWW;
     ctx.beginPath(); //start the path
-    ctx.ellipse(-5,-5, 20 , 20, Math.PI / 4, 0, 2 * Math.PI)
+    //ctx.ellipse(x, y, radiusX, radiusY, rotation, startAngle, endAngle [, anticlockwise]);
+    ctx.ellipse(0, 0, 12, 12, Math.PI / 4, 0, 2 * Math.PI)
+    ctx.stroke(); //end the path
+    ctx.fill(); //fill up whatever was generated
+    ctx.restore();
+
+    
+    ctx.save();
+    ctx.translate(150,150);
+    ctx.translate(200,180) 
+    ctx.save()
+
+
+    //MOUNTAIN WORLD
+    ctx.rotate(((2 * Math.PI) / 9) * time.getSeconds() + ((2 * Math.PI) / 9000) * time.getMilliseconds());
+    //void ctx.translate(x, y);
+    //ctx.translate(0,0);
+    //void ctx.fillRect(x, y, width, height);
+    ctx.translate(175,0) //WE DRAW TO THE CLOSER ORBIT POSSIBLE. HELL WORLD
+
+    ctx.fillStyle = gradientMW;
+    ctx.beginPath(); //start the path
+    //ctx.ellipse(x, y, radiusX, radiusY, rotation, startAngle, endAngle [, anticlockwise]);
+    ctx.ellipse(0, 0, 10, 10, Math.PI / 4, 0, 2 * Math.PI)
+    ctx.stroke(); //end the path
+    ctx.fill(); //fill up whatever was generated
+    ctx.restore();
+
+
+    //MIDDLE WORLD
+    ctx.rotate(((2 * Math.PI) / 12) * time.getSeconds() + ((2 * Math.PI) / 12000) * time.getMilliseconds());
+    //void ctx.translate(x, y);
+    //ctx.translate(0,0);
+    //void ctx.fillRect(x, y, width, height);
+    ctx.translate(240,0) //WE DRAW TO THE CLOSER ORBIT POSSIBLE. HELL WORLD
+
+    ctx.fillStyle = gradientMDW;
+    ctx.beginPath(); //start the path
+    //ctx.ellipse(x, y, radiusX, radiusY, rotation, startAngle, endAngle [, anticlockwise]);
+    ctx.ellipse(0, 0, 8, 8, Math.PI / 4, 0, 2 * Math.PI)
     ctx.stroke(); //end the path
     ctx.fill(); //fill up whatever was generated
 
+    ctx.save();
+        //MIDDLE WORLD MOON
+        ctx.rotate(((2 * Math.PI) / 12) * time.getSeconds() + ((2 * Math.PI) / 12000) * time.getMilliseconds());
+        //void ctx.translate(x, y);
+        //ctx.translate(0,0);
+        //void ctx.fillRect(x, y, width, height);
+        ctx.translate(20,0) //WE DRAW TO THE CLOSER ORBIT POSSIBLE. HELL WORLD
+
+        ctx.fillStyle = gradientMWM;
+        ctx.beginPath(); //start the path
+        //ctx.ellipse(x, y, radiusX, radiusY, rotation, startAngle, endAngle [, anticlockwise]);
+        ctx.ellipse(0, 0, 4, 4, Math.PI / 4, 0, 2 * Math.PI)
+        ctx.stroke(); //end the path
+        ctx.fill(); //fill up whatever was generated
+
+
+    ctx.restore()
+    ctx.restore()
+    ctx.save();
+    ctx.translate(150,150);
+    ctx.translate(200,180) 
     ctx.save()
-    ctx.restore() // eliminate the save level
-    ctx.restore() // we go back to the previous reference
-    ctx.rotate(((2 * Math.PI) / 6000) * time.getSeconds() + ((2 * Math.PI) / 6000000) * time.getMilliseconds());
-    ctx.translate(20,0)
-    ctx.drawImage(earth, -5,-5 , 10 , 10);
 
 
-    ctx.save()
 
-    //ctx.restore()
-    //ctx.restore()
-    //ctx.restore()
+    //BINARY WORLDS
+    ctx.rotate(((2 * Math.PI) / 15) * time.getSeconds() + ((2 * Math.PI) / 15000) * time.getMilliseconds());
+    //void ctx.translate(x, y);
+    //ctx.translate(0,0);
+    //void ctx.fillRect(x, y, width, height);
+    ctx.translate(300,0) //WE DRAW TO THE CLOSER ORBIT POSSIBLE. HELL WORLD
+    ctx.rotate(((2 * Math.PI) / 6) * time.getSeconds() + ((2 * Math.PI) / 6000) * time.getMilliseconds());
+    //PURPLE GAS GIANT
+    ctx.fillStyle = gradientBWB;
+    ctx.beginPath(); //start the path
+    //ctx.ellipse(x, y, radiusX, radiusY, rotation, startAngle, endAngle [, anticlockwise]);
+    ctx.ellipse(15, 15, 14, 14, Math.PI / 4, 0, 2 * Math.PI)
+    ctx.stroke(); //end the path
+    ctx.fill(); //fill up whatever was generated
 
-//Planet 2
+    //BLUE GAS GIANT
+    ctx.fillStyle = gradientBWV;
+    ctx.beginPath(); //start the path
+    //ctx.ellipse(x, y, radiusX, radiusY, rotation, startAngle, endAngle [, anticlockwise]);
+    ctx.ellipse(-20, -20, 16, 16, Math.PI / 4, 0, 2 * Math.PI)
+    ctx.stroke(); //end the path
+    ctx.fill(); //fill up whatever was generated
+
+    ctx.restore()
+
+
+    //RING WORLD
+    ctx.rotate(((2 * Math.PI) / 18) * time.getSeconds() + ((2 * Math.PI) / 18000) * time.getMilliseconds());
+    //void ctx.translate(x, y);
+
+    //void ctx.fillRect(x, y, width, height);
+    ctx.translate(360,0) //WE DRAW TO THE CLOSER ORBIT POSSIBLE. HELL WORLD
+
+    // RING
+    ctx.lineWidth = 0.000001;
+    ctx.fillStyle = 'rgba(255,160,12,0.5)';
+    ctx.beginPath(); //start the path
+    //ctx.ellipse(x, y, radiusX, radiusY, rotation, startAngle, endAngle [, anticlockwise]);
+
+    ctx.ellipse(0, 0, 40, 6, Math.PI / 4, 0, 2 * Math.PI)
+    ctx.stroke(); //end the path
+    ctx.fill();
+    //BLUE GAS GIANT
+    ctx.fillStyle = gradientRW;
+    ctx.beginPath(); //start the path
+    //ctx.ellipse(x, y, radiusX, radiusY, rotation, startAngle, endAngle [, anticlockwise]);
+    ctx.ellipse(0, 0, 20, 20, Math.PI / 4, 0, 2 * Math.PI)
+
+    ctx.stroke(); //end the path
+    ctx.fill();
+
+     //fill up whatever was generated
+    ctx.save();
+
+        //RINGWORLD MOON
+        ctx.rotate(((2 * Math.PI) / 12) * time.getSeconds() + ((2 * Math.PI) / 12000) * time.getMilliseconds());
+        //void ctx.translate(x, y);
+        //ctx.translate(0,0);
+        //void ctx.fillRect(x, y, width, height);
+        ctx.translate(30,0) //WE DRAW TO THE CLOSER ORBIT POSSIBLE. HELL WORLD
+
+        ctx.fillStyle = gradientRWM;
+        ctx.beginPath(); //start the path
+        //ctx.ellipse(x, y, radiusX, radiusY, rotation, startAngle, endAngle [, anticlockwise]);
+        ctx.ellipse(0, 0, 5, 5, Math.PI / 4, 0, 2 * Math.PI)
+        ctx.stroke(); //end the path
+        ctx.fill(); //fill up whatever was generated
+        ctx.restore();
+        ctx.restore();
+
+        ctx.save();
+        ctx.translate(150,150);
+        ctx.translate(200,180);
+        ctx.save()
+
+
+        
+    //OUTER WORLD
+    ctx.rotate(((2 * Math.PI) / 24) * time.getSeconds() + ((2 * Math.PI) / 24000) * time.getMilliseconds());
+    //void ctx.translate(x, y);
+    //ctx.translate(0,0);
+    //void ctx.fillRect(x, y, width, height);
+    ctx.translate(380,0) //WE DRAW TO THE CLOSER ORBIT POSSIBLE. HELL WORLD
+
+    ctx.fillStyle = gradientRWM;
+    ctx.beginPath(); //start the path
+    //ctx.ellipse(x, y, radiusX, radiusY, rotation, startAngle, endAngle [, anticlockwise]);
+    ctx.ellipse(0, 0, 8, 8, Math.PI / 4, 0, 2 * Math.PI)
+    ctx.stroke(); //end the path
+    ctx.fill(); //fill up whatever was generated
 
     
-//Planet 3
-    //void ctx.ellipse(x, y, radiusX, radiusY, rotation, startAngle, endAngle [, anticlockwise]);
-    
-    ctx.ellipse(-33.5,-33.5, 300,300, 1 , 20 , 40);
-    ctx.fillStyle = 'green';
-    ctx.save()
-    
-//Planet 4
 
     
-//Planet 5
 
-    
-//Planet 6
-
-    
-//Planet 7
-
-    
-//Planet 8
-
-    //ctx.restore();
-    
-    //ctx.restore();
-    
-    ctx.beginPath();//create distinct paths
-    
-    ctx.beginPath();
-// SUN
-    //ctx.arc(150,150,105, 0, Math.PI *2, false);
-    ctx.stroke();
-// animations are not according to the position of the sun
 //void ctx.drawImage(image, sx, sy, sWidth, sHeight, dx, dy, dWidth, dHeight);
     //ctx.drawImage(sun, 200, 200, 300, 300);
 
